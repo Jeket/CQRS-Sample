@@ -163,18 +163,18 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Core\QueryHandlerNotFoundException.cs" />
+    <Compile Include="Core\QueryProcesserNotFoundException.cs" />
     <Compile Include="Core\DefaultQueryBus.cs" />
     <Compile Include="Core\IQuery.cs" />
     <Compile Include="Core\IQueryBus.cs" />
-    <Compile Include="Core\IQueryHandler.cs" />
+    <Compile Include="Core\IQueryProcesser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\GetCategoryQuery.cs" />
-    <Compile Include="QueryHandlers\GetCategoryQueryHandler.cs" />
+    <Compile Include="QueryProcessers\GetCategoryQueryProcesser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

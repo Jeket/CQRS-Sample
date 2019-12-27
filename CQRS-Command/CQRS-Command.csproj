@@ -167,12 +167,10 @@
     <Compile Include="Commands\EditCategoryCommand.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\CommandHandlerNotFoundException.cs" />
-    <Compile Include="Core\CommandResult.cs" />
     <Compile Include="Core\DefaultCommandBus.cs" />
     <Compile Include="Core\ICommand.cs" />
     <Compile Include="Core\ICommandBus.cs" />
     <Compile Include="Core\ICommandHandler.cs" />
-    <Compile Include="Core\ICommandResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

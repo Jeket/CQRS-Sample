@@ -2,9 +2,9 @@
 using CQRS_Query.Models;
 using CQRS_Query.Queries;
 
-namespace CQRS_Query.QueryHandlers
+namespace CQRS_Query.QueryProcessers
 {
-    public class GetCategoryQueryHandler : IQueryHandler<GetCategoryQuery, Category[]>
+    public class GetCategoryQueryProcesser : IQueryProcesser<GetCategoryQuery, Category[]>
     {
         public Category[] Process(GetCategoryQuery query)
         {

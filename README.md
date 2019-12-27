@@ -2,16 +2,18 @@
 
 ## What is CQRS?
 ````
-CQRS means command and query responsiblity segregation.
-means separate the responsiblity for command (insert / update / delete) and query (select).
+CQRS => Command and Query responsiblity segregation.
+Where segregation means separation.
 ````
 
 ## CQRS-Command pattern
 ````
-Command pattern is used to manipulate data.
+Command pattern is used to manipulate data (insert / update / delete).
+Command do not return any value.
 ````
 
 ## CQRS-Query pattern
 ````
-Query pattern is used to retrive data.
+Query pattern is used to retrive data (select).
+Query return value or values.
 ````

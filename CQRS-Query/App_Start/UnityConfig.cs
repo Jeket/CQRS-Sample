@@ -46,20 +46,20 @@ namespace CQRS_Query
             // container.RegisterType<IProductRepository, ProductRepository>();
 
             container.RegisterType<IQueryBus, DefaultQueryBus>();
-            // query handlers generic dependency resolver
-            RegisterCommandHandlers(container);
+            // query processers generic dependency resolver
+            RegisterQueryProcessers(container);
         }
 
-        private static void RegisterCommandHandlers(IUnityContainer container)
+        private static void RegisterQueryProcessers(IUnityContainer container)
         {
-            var queryHandlers = Assembly.GetExecutingAssembly().GetTypes()
-             .Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryHandler<,>)));
+            var queryProcessers = Assembly.GetExecutingAssembly().GetTypes()
+             .Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryProcesser<,>)));
 
-            foreach (var handler in queryHandlers)
+            foreach (var processer in queryProcessers)
             {
-                foreach (var query in handler.GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryHandler<,>)).ToList())
+                foreach (var query in processer.GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryProcesser<,>)).ToList())
                 {
-                    container.RegisterType(query, handler);
+                    container.RegisterType(query, processer);
                 }
             }
         }

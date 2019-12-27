@@ -4,7 +4,7 @@ namespace CQRS_Command.Core
 {
     public class DefaultCommandBus : ICommandBus
     {
-        public ICommandResult Submit<TCommand>(TCommand command) where TCommand : ICommand
+        public void Submit<TCommand>(TCommand command) where TCommand : ICommand
         {
             // command handlers dependency is registerd using UnityConfig.cs file
             var handler = DependencyResolver.Current.GetService<ICommandHandler<TCommand>>();
@@ -12,7 +12,7 @@ namespace CQRS_Command.Core
             {
                 throw new CommandHandlerNotFoundException(typeof(TCommand));
             }
-            return handler.Execute(command);
+            handler.Execute(command);
         }
     }
 }

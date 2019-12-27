@@ -1,8 +1,8 @@
 ﻿namespace CQRS_Command.Core
 {
-    // command return no value
+    // command returns no value
     public interface ICommandHandler<in TCommand> where TCommand : ICommand
     {
-        ICommandResult Execute(TCommand command);
+        void Execute(TCommand command);
     }
 }

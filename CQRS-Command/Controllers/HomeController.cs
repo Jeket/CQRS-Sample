@@ -17,12 +17,12 @@ namespace CQRS_Command.Controllers
             // 1. Create Command
             // 2. Pass command to CommandBus
             // 3. CommandBus will create object of command handler
-            // 4. Command handler will handle command and return result
+            // 4. Command handler will handle command
             var createCategory = new CreateCategoryCommand(1, "Test", "Test Description");
-            var resultInsert = _bus.Submit(createCategory);
+            _bus.Submit(createCategory);
 
             var editCategory = new EditCategoryCommand(1, "Test", "Test Description");
-            var resultEdit = _bus.Submit(editCategory);
+            _bus.Submit(editCategory);
 
             return View();
         }
