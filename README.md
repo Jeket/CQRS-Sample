@@ -20,3 +20,9 @@ Query return value or values.
 Note: This Query processor is not required actually, in CQRS query needs to be fetched using THIN data layer,
 so you can fetch data directly from repository instead of query processor.
 ````
+
+## CQRS-EventSourcing pattern
+````
+Event sourcing helps to communicate between modules.
+Data is passed between modules using Events.
+````
