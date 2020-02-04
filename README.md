@@ -23,6 +23,11 @@ so you can fetch data directly from repository instead of query processor.
 
 ## CQRS-EventSourcing pattern
 ````
-Event sourcing helps to communicate between modules.
-Data is passed between modules using Events.
+There are 2 types of events.
+1.  Domain Events
+2.  Integration Events
+
+Publisher-Subscriber mechanisam is used in event sourcing to communicate within the module and outside of modules.
+Commands will publish events, and subscribers will run on publishing of events.
+All database operation needs to be done from event.
 ````
