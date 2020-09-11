@@ -24,10 +24,10 @@ so you can fetch data directly from repository instead of query processor.
 ## CQRS-EventSourcing pattern
 ````
 There are 2 types of events.
-1.  Domain Events
-2.  Integration Events
+1.  Domain Events (Same domain events)
+2.  Integration Events (Cross domain events)
 
 Publisher-Subscriber mechanisam is used in event sourcing to communicate within the module and outside of modules.
-Commands will publish events, and subscribers will run on publishing of events.
+Commands will publish events, and Event subscribers will be executed on event published.
 All database operation needs to be done from event.
 ````
