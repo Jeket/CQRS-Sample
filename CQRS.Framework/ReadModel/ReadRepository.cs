@@ -5,16 +5,16 @@ namespace CQRS.Framework.ReadModel
 {
     public class ReadRepository<T> : IReadRepository<T> where T : BaseReadModel, new()
     {
-        private DbContext _dbContext;
+        private readonly DbContext _dbContext;
 
         public ReadRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        IQueryable<T> IReadRepository<T>.GetAll()
+        public IQueryable<T> Get()
         {
-            return this._dbContext.Set<T>().AsQueryable();
+            return _dbContext.Set<T>().AsQueryable();
         }
     }
 }

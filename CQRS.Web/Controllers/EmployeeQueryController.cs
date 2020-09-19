@@ -9,10 +9,14 @@ namespace CQRS.Web.Controllers
     {
         private readonly IReadRepository<Employee> _readRepository;
 
-        // GET: EmployeeQuery
+        public EmployeeQueryController(IReadRepository<Employee> readRepository)
+        {
+            _readRepository = readRepository;
+        }
+
         public IQueryable<Employee> Get()
         {
-            return _readRepository.GetAll();
+            return _readRepository.Get();
         }
     }
 }

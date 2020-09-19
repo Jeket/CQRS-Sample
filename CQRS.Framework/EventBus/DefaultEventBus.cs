@@ -5,7 +5,7 @@ namespace CQRS.Framework.EventBus
 {
     public class DefaultEventBus : IEventBus
     {
-        public void Publish<TEvent>(TEvent eve) where TEvent : IEvent
+        public void Publish<TEvent>(TEvent @event) where TEvent : IEvent
         {
             var subscribers = DependencyResolver.Current.GetServices<IEventHandler<TEvent>>();
             foreach (var subscriber in subscribers)
@@ -14,7 +14,7 @@ namespace CQRS.Framework.EventBus
                 {
                     throw new EventHandlerNotFoundException(typeof(TEvent));
                 }
-                subscriber.Handle(eve);
+                subscriber.Handle(@event);
             }
         }
     }

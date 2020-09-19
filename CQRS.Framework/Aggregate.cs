@@ -17,11 +17,11 @@ namespace CQRS.Framework
         public Guid AggregateId { get; protected set; }
         public int Version { get; protected set; }
 
-        public void Apply(IEvent eve)
+        public void Apply(IEvent @event)
         {
-            eve.Id = this.AggregateId;
-            eve.Version = this.Version + 1;
-            this._bus.Publish(eve);
+            @event.SourceId = this.AggregateId;
+            @event.Version = this.Version + 1;
+            this._bus.Publish(@event);
         }
     }
 }

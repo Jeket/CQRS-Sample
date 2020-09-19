@@ -4,6 +4,6 @@ namespace CQRS.Framework.EventBus
 {
     public interface IEventBus
     {
-        void Publish<TEvent>(TEvent eve) where TEvent : IEvent;
+        void Publish<TEvent>(TEvent @event) where TEvent : IEvent;
     }
 }
