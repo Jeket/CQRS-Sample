@@ -2,7 +2,7 @@
 
 namespace CQRS.Framework.CommandBus
 {
-    public class ICommandResult
+    public interface ICommandResult
     {
         HttpStatusCode StatusCode { get; set; }
     }

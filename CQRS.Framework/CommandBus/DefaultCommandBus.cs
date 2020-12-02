@@ -7,15 +7,12 @@ namespace CQRS.Framework.CommandBus
     {
         public ICommandResult Submit<TCommand>(TCommand command) where TCommand : ICommand
         {
-            var handlers = DependencyResolver.Current.GetServices<ICommandHandler<TCommand>>();
-            foreach (var handler in handlers)
+            var handler = DependencyResolver.Current.GetService<ICommandHandler<TCommand>>();
+            if (!((handler != null) && handler is ICommandHandler<TCommand>))
             {
-                if (!((handler != null) && handler is ICommandHandler<TCommand>))
-                {
-                    throw new CommandHandlerNotFoundException(typeof(TCommand));
-                }
-                handler.Handle(command);
+                throw new CommandHandlerNotFoundException(typeof(TCommand));
             }
+            handler.Handle(command);
 
             return new CommandResult
             {
